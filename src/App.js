@@ -1,6 +1,6 @@
-import { cards, Sides } from './config/cards'
+import { getShuffledCards } from './cards/cardController'
 
-
+const cards = getShuffledCards();
 
 function App() {
   return (
