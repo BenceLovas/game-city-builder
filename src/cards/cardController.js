@@ -1,9 +1,16 @@
-import { cards, Sides } from './cards'
+import { cards, cardFirst } from './cards'
 import { v4 as uuidv4 } from 'uuid';
 
 export const getShuffledCards = () => {
     const deck = createDeck();
-    return shuffleDeck(deck);
+    const shuffledDeck = shuffleDeck(deck)
+    return [
+        {
+            id: uuidv4(),
+            ...cardFirst
+        },
+        ...shuffledDeck,
+    ];
 }
 
 const createDeck = () => {

@@ -6,6 +6,17 @@ export const Side = {
     ROAD: 'ROAD',
 }
 
+export const cardFirst = {
+    sides: [Side.CITY, Side.ROAD, Side.FIELD, Side.ROAD],
+    count: 4,
+    church: false,
+    shield: false,
+    elements: [
+        cardElements.cityTop,
+        cardElements.roadHorizontal,
+    ]
+}
+
 export const cards = [
     //https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Carcassonne_tiles.svg/1000px-Carcassonne_tiles.svg.png
     // COLUMN 1
@@ -78,7 +89,8 @@ export const cards = [
     },
     {
         sides: [Side.CITY, Side.ROAD, Side.FIELD, Side.ROAD],
-        count: 4,
+        // orinially 4 but the first card is also this so that is why the -1
+        count: 3,
         church: false,
         shield: false,
         elements: [
