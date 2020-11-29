@@ -1,4 +1,4 @@
-export const church = <circle cx="50" cy="50" r="30" stroke="black" stroke-width="3" fill="black" />
+export const church = <circle cx="50" cy="50" r="30" fill="rgba(0,0,0, .7)" />
 export const roadTurnLeft = <path d="M 0 50 C 0 50, 50 50, 50 100" stroke="white" stroke-width="30" fill="transparent"/>
 export const roadTurnRight = <path d="M 50 100 C 50 70, 70 50, 100 50" stroke="white" stroke-width="30" fill="transparent"/>
 export const roadHorizontal = <path d="M 0 50 L 100 50" stroke="white" stroke-width="30" fill="transparent"/>
@@ -14,7 +14,7 @@ export const cityTop = <path
         L 100 0
         Z
     " 
-    fill="black"
+    fill="rgba(0,0,0, .7)"
 />
 export const cityBottom = <path 
 d="
@@ -24,7 +24,7 @@ d="
     L 100 100
     Z
 " 
-fill="black"
+fill="rgba(0,0,0, .7)"
 />
 export const cityRight = <path 
 d="
@@ -34,7 +34,7 @@ d="
     L 100 100
     Z
 " 
-fill="black"
+fill="rgba(0,0,0, .7)"
 />
 export const cityHorizontal = <path 
 d="
@@ -48,7 +48,7 @@ d="
     L 0 100
     Z
 " 
-fill="black"
+fill="rgba(0,0,0, .7)"
 />
 
 export const cityTopRight = <path 
@@ -62,7 +62,7 @@ d="
     L 100 0
     Z
 " 
-fill="black"
+fill="rgba(0,0,0, .7)"
 />
 
 export const cityTopRightLeft = <path 
@@ -75,7 +75,7 @@ d="
     L 0 100
     Z
 " 
-fill="black"
+fill="rgba(0,0,0, .7)"
 />
 export const cityFull = <path 
 d="
@@ -85,5 +85,5 @@ d="
     L 0 100
     Z
 " 
-fill="black"
+fill="rgba(0,0,0, .7)"
 />
