@@ -5,6 +5,7 @@ export const getShuffledCards = () => {
   const deck = createDeck();
   const shuffledDeck = shuffleDeck(deck);
   return [
+    // starting card is always fixed in the game
     {
       id: uuidv4(),
       ...cardFirst,
@@ -13,6 +14,7 @@ export const getShuffledCards = () => {
   ];
 };
 
+// creates x amout of cards from the same type
 const createDeck = () => {
   const deck = [];
   for (let i = 0; i < cards.length; i++) {
@@ -29,10 +31,10 @@ const createDeck = () => {
 };
 
 // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-function shuffleDeck(array) {
-  var currentIndex = array.length,
-    temporaryValue,
-    randomIndex;
+const shuffleDeck = (array) => {
+  let currentIndex = array.length;
+  let temporaryValue;
+  let randomIndex;
 
   // While there remain elements to shuffle...
   while (0 !== currentIndex) {
@@ -47,4 +49,4 @@ function shuffleDeck(array) {
   }
 
   return array;
-}
+};

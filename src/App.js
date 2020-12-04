@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { getShuffledCards } from "./cards/cardController";
 import Card from "./cards/component/Card";
+import { createGrid } from "./table/grid";
 
 const cards = getShuffledCards();
+// 3 x 3 grid with the starting card in the middle
 const tableBase = [
   [
     { x: 0, y: 0 },
@@ -20,6 +22,7 @@ const tableBase = [
     { x: 200, y: 200 },
   ],
 ];
+
 function App() {
   const [table, setTable] = useState(tableBase);
   const [currentCardIndex, setCurrentCardIndex] = useState(1);
@@ -33,28 +36,8 @@ function App() {
       elements={cards[0].elements}
     />,
   ]);
-  const createGrid = () => {
-    const rectagles = [];
-    console.log(table);
-    for (let i = 0; i < table.length; i++) {
-      for (let j = 0; j < table[i].length; j++) {
-        rectagles.push(
-          <rect
-            x={table[i][j].x}
-            y={table[i][j].y}
-            width="100"
-            height="100"
-            fill="transparent"
-            stroke="black"
-            stroke-width="1"
-          />
-        );
-      }
-    }
 
-    return rectagles;
-  };
-  const [grid, setGrid] = useState(createGrid());
+  const [grid, setGrid] = useState(createGrid(table));
   const [width, setWidth] = useState(300);
   const [height, setHeight] = useState(300);
 
@@ -79,7 +62,7 @@ function App() {
       }
       return cards;
     });
-    setGrid(createGrid());
+    setGrid(createGrid(table));
     setHeight(table.length * 100);
     setWidth(table[0].length * 100);
   }, [table]);
@@ -174,7 +157,6 @@ function App() {
 
   useEffect(() => {
     document.addEventListener("keydown", keyDownHandler, false);
-
     return () => {
       document.removeEventListener("keydown", keyDownHandler, false);
     };
@@ -184,13 +166,13 @@ function App() {
     <div style={{ position: "relative" }}>
       <div>
         <div>Current Card</div>
-        <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
-          <rect width="100%" height="100%" fill="rgba(132, 197, 186, 0.52)" />
-          <g transform={"rotate(" + rotation + ")"} transform-origin="center">
-            {cards[currentCardIndex].elements}
-          </g>
-        </svg>
-        <button onClick={() => rotateCard()}>ROTATE (R)</button>
+        <Card
+          x={0}
+          y={0}
+          rotation={rotation}
+          elements={cards[currentCardIndex].elements}
+        />
+        <button onClick={rotateCard}>ROTATE (R)</button>
       </div>
       <div style={{ position: "absolute" }}>
         <svg width={width} height={height} xmlns="http://www.w3.org/2000/svg">
@@ -207,14 +189,6 @@ function App() {
           {cardsOnTable}
         </svg>
       </div>
-
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "space-evenly",
-        }}
-      ></div>
     </div>
   );
 }

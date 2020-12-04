@@ -19,6 +19,6 @@ module.exports = {
   plugins: ["react"],
   rules: {
     "react/react-in-jsx-scope": "off",
-    "max-len": ["error", { code: 80, tabWidth: 2 }],
+    "max-len": ["error", { code: 80, tabWidth: 2, ignoreComments: true }],
   },
 };

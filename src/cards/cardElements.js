@@ -39,12 +39,8 @@ export const roadVerticalHalf = (
     fill="transparent"
   />
 );
-export const shieldMiddle = (
-  <path d="M 50 40 L 60 55 L 40 55 Z" fill="orange" />
-);
-export const shieldTopLeft = (
-  <path d="M 83 10 L 93 25 L 73 25 Z" fill="orange" />
-);
+export const shieldMiddle = <circle cx="50" cy="50" r="10" fill="orange" />;
+export const shieldTopLeft = <circle cx="83" cy="15" r="10" fill="orange" />;
 export const cityTop = (
   <path
     d="
