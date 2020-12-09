@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getShuffledCards } from "./cards/cardController";
 import Card from "./cards/component/Card";
 import { createGrid } from "./table/grid";
+import { isMoveValid } from "./table/moveValidator";
 
 const cards = getShuffledCards();
 // 3 x 3 grid with the starting card in the middle
@@ -69,6 +70,10 @@ function App() {
 
   const rotateCard = () => {
     setRotation((prev) => (prev + 90) % 360);
+    const sides = cards[currentCardIndex].sides;
+    // rotate card's sides array
+    // https://stackoverflow.com/questions/1985260/rotate-the-elements-in-an-array-in-javascript
+    sides.unshift(sides.pop());
   };
 
   const onClick = (evt) => {
@@ -76,6 +81,11 @@ function App() {
     const y = Math.floor(evt.nativeEvent.layerY / 100) * 100;
 
     // validate move
+    const validMove = isMoveValid(table, y / 100, x / 100);
+    if (!validMove) {
+      return;
+    }
+
     // validate place - is it next to a tile
     // validate sides
 

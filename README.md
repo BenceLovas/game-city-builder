@@ -1,9 +1,8 @@
 # TODO
 
 - refactor
-- always show current card on top (fixed absolute thingy)
 - validate move
-  - rotate sides on rotate
+  - rotate sides on rotate - DONE
   - check if it is next to a card
   - check if it is the right side that matches all sides
 - fix crash on last card of deck
@@ -13,6 +12,7 @@
 - some cool effect when a church gets finished
 - make small cities have 45 angle on side as well - just create an outline for it so it is visible when there is 2 separate elements
 - create components
+- always show current card on top (fixed absolute thingy)
 - add formatting
 - when placing cards it should be a valid place
 - it is possible that the full city card cannot be played
